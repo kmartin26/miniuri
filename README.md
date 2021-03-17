@@ -14,3 +14,5 @@ Latest stable version is currently running on [https://miniuri.me](https://miniu
 1. Admin interface to manage URLs, contacts, reports and stats
 2. New API endpoint to verify a short url
 3. New API endpoint to get click count for a url
+
+This list of evolutions represent the requirements to make the app reach v1 !

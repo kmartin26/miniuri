@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Stat;
+use App\Models\Stat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Vinkla\Hashids\Facades\Hashids;

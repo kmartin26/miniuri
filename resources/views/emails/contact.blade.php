@@ -356,7 +356,7 @@
                         <p><b>Email:</b> {{ $contactEmail }}</p>
                         <p><b>Subject:</b> {{ $contactSubject }}</p>
                         <p><b>Message:</b></p>
-                        <p>{{ $contactMessage }}</p>
+                        <p>{!! nl2br(e($contactMessage)) !!}</p>
                         <p>&nbsp;</p>
                         <p>Regards,</p>
                       </td>

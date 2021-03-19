@@ -355,7 +355,7 @@
                         <p><b>Name:</b> {{ $reportName }}</p>
                         <p><b>Email:</b> {{ $reportEmail }}</p>
                         <p><b>Message:</b></p>
-                        <p>{{ $reportMessage }}</p>
+                        <p>{!! nl2br(e($reportMessage)) !!}</p>
                         <p>&nbsp;</p>
                         <p>Regards,</p>
                       </td>

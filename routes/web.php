@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CoreController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'CoreController@index')->name('home');
+Route::get('/', [CoreController::class, 'index'])->name('home');
 
 Route::get('docs', function() {
     return view('docs');
 })->name('docs');
 
-Route::get('contact', 'ContactController@create')->name('contact');
-Route::post('contact', 'ContactController@store')->name('contact.store');
+Route::get('contact', [ContactController::class, 'create'])->name('contact');
+Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('privacy', function() {
     return view('privacy');
@@ -30,7 +33,7 @@ Route::get('terms', function() {
     return view('terms');
 })->name('terms');
 
-Route::get('report', 'ReportController@create')->name('report');
-Route::post('report', 'ReportController@store')->name('report.store');
+Route::get('report', [ReportController::class, 'create'])->name('report');
+Route::post('report', [ReportController::class, 'store'])->name('report.store');
 
-Route::get('{slug}', 'CoreController@show');
+Route::get('{slug}', [CoreController::class, 'show']);

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Report;
+use App\Models\Report;
 use App\Mail\ReportForm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;

@@ -22,12 +22,12 @@
 </head>
 <body class="flex flex-col h-screen bg-gray-800">
     <div class="flex flex-col w-full h-full container mx-auto">
-        <header class="flex flex-col md:flex-row items-center content-beetwen pt-6 mx-3 mb-auto">
+        <header class="flex flex-col md:flex-row items-center content-beetwen pt-6 mx-8 mb-auto">
             <a class="logo flex text-4xl font-semibold text-white mb-3 md:mb-0" href="{{ url('/') }}">{{ env('APP_NAME') }}</a>
             @include('layouts.menus.main')
         </header>
         @yield('content')
-        <footer class="flex flex-col md:flex-row-reverse items-center content-beetwen mt-auto pb-6 text-white">
+        <footer class="flex flex-col md:flex-row-reverse items-center content-beetwen mx-8 mt-auto pb-6 text-white">
             @include('layouts.menus.footer')
             <div class="mb-2 md:mb-0 mx-auto">Made with 
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 inline text-red-600 align-top" viewBox="0 0 20 20" fill="currentColor">

@@ -29,6 +29,11 @@
         @yield('content')
         <footer class="flex flex-col md:flex-row-reverse items-center content-beetwen mt-auto pb-6 text-white">
             @include('layouts.menus.footer')
+            <div class="mb-2 md:mb-0 mx-auto">Made with 
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 inline text-red-600 align-top" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                </svg>
+            </div>
             <div>Copyright 2020 - {{ env('APP_NAME') }}</div>
         </footer>
     </div>

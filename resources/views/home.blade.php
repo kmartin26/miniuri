@@ -5,8 +5,8 @@
 @section('content')
 <section class="mx-auto text-center w-full">
     <h2 class="text-white text-4xl font-bold">Past and shorten</h2>
-    <form action="{{ route('home') }}" class="form flex items-center justify-center mx-auto pt-2">
-        <input type="text" name="url" class="h-10 w-1/3 outline-none rounded-none rounded-l-lg p-2">
+    <form action="{{ route('home') }}" class="form flex items-center justify-center mx-8 xl:mx-0 pt-2">
+        <input type="text" name="url" class="h-10 w-full sm:w-1/2 xl:w-1/3 outline-none rounded-none rounded-l-lg p-2">
         <button type="submit" class="btn btn-submit flex justify-center font-bold py-2 px-4 outline-none rounded-none rounded-r-lg">
             <span class="mr-1">Go</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="ico-flash" fill="none" viewBox="0 0 24 24" stroke="currentColor">

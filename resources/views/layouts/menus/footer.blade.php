@@ -1,4 +1,4 @@
-<nav class="flex md:ml-auto">
+<nav class="mb-2 md:mb-0">
     <ul class="flex space-x-6 text-white">
         <li>
             <a class="" href="{{ route('privacy') }}">Privacy</a>

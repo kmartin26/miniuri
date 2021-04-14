@@ -18,7 +18,7 @@
     <meta name="msapplication-TileColor" content="#b91d47">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body class="flex flex-col h-screen bg-gray-800">
     <div class="flex flex-col w-full h-full container mx-auto">

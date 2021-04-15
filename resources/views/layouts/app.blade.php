@@ -18,12 +18,15 @@
     <meta name="msapplication-TileColor" content="#b91d47">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"> 
+    
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body class="flex flex-col h-screen bg-gray-800">
     <div class="flex flex-col w-full h-full container mx-auto">
         <header class="flex flex-col md:flex-row items-center content-beetwen pt-6 mx-8 mb-auto">
-            <a class="logo flex text-4xl font-semibold text-white mb-3 md:mb-0" href="{{ url('/') }}">{{ env('APP_NAME') }}</a>
+            <a class="logo flex text-4xl font-extrabold text-white mb-3 md:mb-0" href="{{ url('/') }}">{{ env('APP_NAME') }}</a>
             @include('layouts.menus.main')
         </header>
         @yield('content')

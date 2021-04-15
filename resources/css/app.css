@@ -3,6 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+html { font-family: 'Nunito', sans-serif; }
+
 p {
     @apply mb-2;
 }

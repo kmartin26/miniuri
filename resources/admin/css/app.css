@@ -1,0 +1,66 @@
+/* ./resources/css/app.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { font-family: 'Nunito', sans-serif; }
+
+/* Nav */
+nav > ul li a {
+    @apply block py-2 pl-6;
+}
+
+nav > ul li a:hover {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+nav > ul li a.active {
+    @apply font-semibold;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+nav > ul li a > i {
+    @apply mr-3;
+}
+
+/* Dashboard */
+
+#cards > div {
+    @apply w-1/5 rounded-lg p-3 relative overflow-hidden;
+}
+
+#cards > div::before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+
+    @apply absolute -bottom-6 -right-6 opacity-25 text-9xl;
+}
+
+#cards .urls::before {
+    content:'\f0c1';
+}
+
+#cards .stats::before {
+    content:'\f080';
+}
+
+#cards .contacts::before {
+    content:'\f0e0';
+}
+
+#cards .reports::before {
+    content:'\f024';
+}
+
+#cards > div .go-to {
+    @apply hidden absolute top-1 right-5 text-3xl;
+}
+
+#cards > div:hover .go-to {
+    @apply block;
+}
+
+/* Misc */
+tr:nth-child(even) {
+    @apply bg-gray-100;
+}

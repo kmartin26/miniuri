@@ -25,15 +25,20 @@
     <link rel="stylesheet" href="{{ asset('admin/css/app.css') }}">
 </head>
 <body class="flex flex-col h-full bg-gray-100">
-    <div class="flex flex-row w-full h-full">
+    <div class="flex flex-row w-full min-h-screen h-full">
         <aside class="flex flex-col items-center content-beetwen w-2/12 bg-gray-800">
             <a class="flex text-4xl font-extrabold text-white my-5" href="{{ url('/admin') }}">{{ env('APP_NAME') }}</a>
             @include('admin.layouts.menu')
         </aside>
         <main class="mx-auto w-full pb-6">
-            <header class="w-full h-10 bg-white shadow-md">
-                <div class="flex items-center h-full pl-8 text-lg font-semibold uppercase text-gray-700">
+            <header class="flex w-full h-10 bg-white shadow-md">
+                <div class="flex items-center h-full w-5/6 pl-8 text-lg font-semibold uppercase text-gray-700">
                     <h2>@yield('title')</h2>
+                </div>
+                <div class="flex items-center h-full w-1/6 pr-8 text-xs justify-end uppercase text-gray-700">
+                    <a class="hover:underline" href="{{ route('home') }}">Website</a>
+                    <span class="mx-2">/</span>
+                    <a class="hover:underline"  href="{{ route('logout') }}">Logout</a>
                 </div>
             </header>
             @yield('content')

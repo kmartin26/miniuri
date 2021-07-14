@@ -38,22 +38,24 @@ Route::get('terms', function() {
 Route::get('report', [ReportController::class, 'create'])->name('report');
 Route::post('report', [ReportController::class, 'store'])->name('report.store');
 
-Route::name('admin.')->prefix('admin')->group(function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+require __DIR__.'/auth.php';
 
-    Route::get('/urls', [UrlController::class, 'index'])->name('urls');
+Route::name('admin.')->prefix('admin')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
+
+    Route::get('/urls', [UrlController::class, 'index'])->middleware(['auth'])->name('urls');
     
     Route::get('/stats', function () {
         return 'list stats';
-    })->name('stats');
+    })->middleware(['auth'])->name('stats');
 
     Route::get('/contacts', function () {
         return 'list contacts';
-    })->name('contacts');
+    })->middleware(['auth'])->name('contacts');
 
     Route::get('/reports', function () {
         return 'list reports';
-    })->name('reports');
+    })->middleware(['auth'])->name('reports');
 });
 
 Route::get('{slug}', [CoreController::class, 'show']);

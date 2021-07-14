@@ -58,6 +58,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Application Contact
+    |--------------------------------------------------------------------------
+    |
+    | This is used as default email for sending alerts about contacts, reports
+    | and default admin account to connect to administration panel
+    |
+    */
+
+    'contact' => env('APP_CONTACT'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Timezone
     |--------------------------------------------------------------------------
     |

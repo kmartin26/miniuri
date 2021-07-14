@@ -27,6 +27,11 @@
     <div class="flex flex-col w-full h-full container mx-auto">
         <header class="flex flex-col md:flex-row items-center content-beetwen pt-6 mx-8 mb-auto">
             <a class="logo flex text-4xl font-extrabold text-white mb-3 md:mb-0" href="{{ url('/') }}">{{ env('APP_NAME') }}</a>
+            @auth
+            <div class="h-full flex items-end ml-5 pb-1">
+                <a class="text-sm text-white underline" href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+            </div>
+            @endauth
             @include('layouts.menus.main')
         </header>
         @yield('content')

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\Url;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class UrlController extends Controller
 {
@@ -14,7 +16,18 @@ class UrlController extends Controller
      */
     public function index()
     {
-        return view('admin.urls');
+        // $urls = Url::paginate(20);
+        $urls = DB::table('urls')
+                    ->selectRaw('urls.*, COUNT(stats.id) as clicks')
+                    ->leftJoin('stats', 'stats.url_id', '=', 'urls.id')
+                    ->groupBy('urls.id')
+                    ->orderByDesc('urls.id')
+                    ->paginate(20)
+        ;
+
+        // dd($urls);
+
+        return view('admin.urls')->with('urls', $urls);
     }
 
     /**

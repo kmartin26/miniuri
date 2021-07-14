@@ -7,25 +7,25 @@
     <div id="cards" class="flex flex-row justify-evenly mt-6 text-white h-32">
         <div class="urls bg-blue-500 hover:shadow-md">
             <div class="text-lg font-medium">URLs</div>
-            <div class="text-2xl font-bold italic">{{ $cards['urls'] }}</div>
+            <div class="text-2xl font-bold italic">{{ number_format($cards['urls'], 0, ',', ' ') }}</div>
             <div class="go-to"><i class="fas fa-long-arrow-alt-right"></i></div>
             <a href="{{ route('admin.urls') }}" class="absolute inset-0"></a>
         </div>
         <div class="stats bg-purple-500 hover:shadow-md">
             <div class="text-lg font-medium">Stats</div>
-            <div class="text-2xl font-bold italic">{{ $cards['clicks'] }}</div>
+            <div class="text-2xl font-bold italic">{{ number_format($cards['clicks'], 0, ',', ' ') }}</div>
             <div class="go-to"><i class="fas fa-long-arrow-alt-right"></i></div>
             <a href="{{ route('admin.stats') }}" class="absolute inset-0"></a>
         </div>
         <div class="contacts bg-green-500 hover:shadow-md">
             <div class="text-lg font-medium">Contacts</div>
-            <div class="text-2xl font-bold italic">{{ $cards['contacts'] }}</div>
+            <div class="text-2xl font-bold italic">{{ number_format($cards['contacts'], 0, ',', ' ') }}</div>
             <div class="go-to"><i class="fas fa-long-arrow-alt-right"></i></div>
             <a href="{{ route('admin.contacts') }}" class="absolute inset-0"></a>
         </div>
         <div class="reports bg-yellow-500 hover:shadow-md">
             <div class="text-lg font-medium">Reports</div>
-            <div class="text-2xl font-bold italic">{{ $cards['reports'] }}</div>
+            <div class="text-2xl font-bold italic">{{ number_format($cards['reports'], 0, ',', ' ') }}</div>
             <div class="go-to"><i class="fas fa-long-arrow-alt-right"></i></div>
             <a href="{{ route('admin.reports') }}" class="absolute inset-0"></a>
         </div>

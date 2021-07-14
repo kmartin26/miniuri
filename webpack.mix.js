@@ -16,7 +16,7 @@ const tailwindcss = require('tailwindcss');
 // Public ressources
 mix.js("resources/js/app.js", "public/js")
   .postCss("resources/css/app.css", "public/css", [
-    require("tailwindcss"),
+    tailwindcss,
   ]);
 mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js');
 
@@ -24,7 +24,7 @@ mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js');
 mix.js("resources/admin/js/app.js", "public/admin/js")
   .sass('resources/admin/sass/fontawesome.scss', 'public/admin/css')
   .postCss("resources/admin/css/app.css", "public/admin/css", [
-    require("tailwindcss"),
+    tailwindcss,
   ]);
 mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/admin/js');
 mix.copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/webfonts');

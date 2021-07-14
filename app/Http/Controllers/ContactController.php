@@ -49,7 +49,7 @@ class ContactController extends Controller
 
         if ($contact->id) {
             // Send email
-            $test = Mail::to(env('APP_CONTACT'))->send(new ContactForm($contact));
+            Mail::to(config('app.contact'))->send(new ContactForm($contact));
 
             // return with success message
             return back()->with('success', 'Thanks for contacting us. We will get back to you within 48 hours.');

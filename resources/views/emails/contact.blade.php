@@ -333,7 +333,7 @@
     </style>
   </head>
   <body class="">
-    <span class="preheader">You have received a new contact request from {{ env('APP_URL') }}</span>
+    <span class="preheader">You have received a new contact request from {{ config('app.url') }}</span>
     <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="body">
       <tr>
         <td>&nbsp;</td>
@@ -374,7 +374,7 @@
               <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <td class="content-block">
-                      <a href="{{ env('APP_URL') }}"> <span class="apple-link">{{ env('APP_NAME') }}</span> </a>
+                      <a href="{{ config('app.url') }}"> <span class="apple-link">{{ config('app.name') }}</span> </a>
                   </td>
                 </tr>
               </table>

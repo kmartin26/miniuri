@@ -56,7 +56,7 @@ class ApiController extends Controller
         }
         $validated = $validator->validated();
 
-        if ( parse_url($validated['url'], PHP_URL_HOST) == parse_url(env('APP_URL'), PHP_URL_HOST) ) {
+        if ( parse_url($validated['url'], PHP_URL_HOST) == parse_url(config('app.url'), PHP_URL_HOST) ) {
             return response()->json(
                 [
                     'code' => 200,

@@ -48,7 +48,7 @@ class ReportController extends Controller
 
         if ($report->id) {
             // Send email
-            Mail::to(config('app.contact'))->send(new ReportForm($report));
+            Mail::to(config('custom.contact'))->send(new ReportForm($report));
 
             // return with success message
             return back()->with('success', 'Thanks for your report. We will take care of it as soon as possible.');

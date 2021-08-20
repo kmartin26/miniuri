@@ -33,9 +33,9 @@
                         <td class="p-2">{{ \Carbon\Carbon::parse($url->created_at)->format('d-m-Y') }}</td>
                         <td class="p-2">
                             @if ($url->active)
-                                <button class="p-1 rounded border-2 border-red-700 bg-red-600 text-white text-sm w-full">Disable</button>
+                                <button class="disable p-1 rounded border-2 border-red-700 bg-red-600 text-white text-sm w-full" data-id="{{ $url->id }}">Disable</button>
                             @else
-                                <button class="p-1 rounded border-2 border-blue-700 bg-blue-600 text-white text-sm w-full">Enable</button>
+                                <button class="enable p-1 rounded border-2 border-blue-700 bg-blue-600 text-white text-sm w-full" data-id="{{ $url->id }}">Enable</button>
                             @endif
                         </td>
                     </tr> 

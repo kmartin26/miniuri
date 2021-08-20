@@ -20,7 +20,7 @@ class UrlController extends Controller
         $urls = DB::table('urls')
                     ->selectRaw('urls.*, COUNT(stats.id) as clicks')
                     ->leftJoin('stats', 'stats.url_id', '=', 'urls.id')
-                    ->groupBy('urls.id')
+                    ->groupBy('urls.id', 'urls.url', 'urls.method', 'urls.creator_ip', 'urls.created_at', 'urls.updated_at', 'urls.active')
                     ->orderByDesc('urls.id')
                     ->paginate(20)
         ;

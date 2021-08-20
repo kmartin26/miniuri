@@ -44,7 +44,7 @@
             @yield('content')
         </main>
     </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('admin/js/app.js') }}"></script>
 </body>
 </html>

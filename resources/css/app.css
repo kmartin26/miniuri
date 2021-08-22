@@ -47,12 +47,25 @@ p {
     @apply bg-green-700;
 }
 
+.btn-restart {
+    width: 150px;
+    @apply bg-yellow-500;
+}
+
+.btn-restart:hover {
+    @apply bg-yellow-700;
+}
+
 /* Icones */
 .ico-flash {
     @apply w-5 inline;
 }
 
 .ico-copy {
+    @apply w-5 inline;
+}
+
+.ico-restart {
     @apply w-5 inline;
 }
 
@@ -81,4 +94,18 @@ p {
 /* Misc */
 .active {
     @apply font-semibold underline;
+}
+
+.invisible {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fade {
+    
 }

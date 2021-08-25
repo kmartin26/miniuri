@@ -1,6 +1,6 @@
 require('./bootstrap');
 
-$( document ).ready(function() {
+$(function() {
 
     let regex = /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})).?)(?::\d{2,5})?(?:[/?#]\S*)?$/i;
     
@@ -30,6 +30,9 @@ $( document ).ready(function() {
             } else if (data.error == "ALREADY_SHORTEN") {
                 $('.alert-box .alert').addClass('alert-danger').removeClass('hidden').html(data.message);
             }
+            setTimeout(function() {
+                $('.restart .btn').fadeIn('slow');
+            }, 2000);
         });
         
     });
@@ -39,6 +42,10 @@ $( document ).ready(function() {
         if (copied) {
             $('.alert-box .alert').addClass('alert-success').removeClass('hidden').html('Copied to clipboard');
         }
+    });
+
+    $('body').on('click', '.btn-restart', function() {
+        location.reload();
     });
 
 });

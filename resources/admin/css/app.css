@@ -3,6 +3,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Font Awesome 5 Free */
+@import '~@fortawesome/fontawesome-free/css/fontawesome';
+@import '~@fortawesome/fontawesome-free/css/regular';
+@import '~@fortawesome/fontawesome-free/css/solid';
+@import '~@fortawesome/fontawesome-free/css/brands';
+
+/* App rules */
 html { font-family: 'Nunito', sans-serif; }
 
 /* Nav */

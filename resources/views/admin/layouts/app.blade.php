@@ -21,8 +21,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"> 
 
-    <link rel="stylesheet" href="{{ asset('admin/css/fontawesome.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/app.css') }}">
 </head>
 <body class="flex flex-col h-full bg-gray-100">
     <div class="flex flex-row w-full min-h-screen h-full">
@@ -44,7 +44,7 @@
             @yield('content')
         </main>
     </div>
-    <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('admin/js/app.js') }}"></script>
+    <script src="{{ asset('js/admin/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/admin/app.js') }}"></script>
 </body>
 </html>

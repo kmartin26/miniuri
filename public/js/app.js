@@ -1842,7 +1842,7 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-$(document).ready(function () {
+$(function () {
   var regex = /^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})).?)(?::\d{2,5})?(?:[/?#]\S*)?$/i;
   $('.form').on('submit', function (e) {
     e.preventDefault();
@@ -1869,6 +1869,10 @@ $(document).ready(function () {
       } else if (data.error == "ALREADY_SHORTEN") {
         $('.alert-box .alert').addClass('alert-danger').removeClass('hidden').html(data.message);
       }
+
+      setTimeout(function () {
+        $('.restart .btn').fadeIn('slow');
+      }, 2000);
     });
   });
   $('body').on('click', '.btn-copy', function () {
@@ -1877,6 +1881,9 @@ $(document).ready(function () {
     if (copied) {
       $('.alert-box .alert').addClass('alert-success').removeClass('hidden').html('Copied to clipboard');
     }
+  });
+  $('body').on('click', '.btn-restart', function () {
+    location.reload();
   });
 });
 
@@ -19429,9 +19436,9 @@ process.umask = function() { return 0; };
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"admin/css/app": 0,
+/******/ 			"css/admin/app": 0,
 /******/ 			"css/app": 0,
-/******/ 			"admin/css/fontawesome": 0
+/******/ 			"css/admin/fontawesome": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -19479,10 +19486,10 @@ process.umask = function() { return 0; };
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["admin/css/app","css/app","admin/css/fontawesome"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["admin/css/app","css/app","admin/css/fontawesome"], () => (__webpack_require__("./resources/admin/sass/fontawesome.scss")))
-/******/ 	__webpack_require__.O(undefined, ["admin/css/app","css/app","admin/css/fontawesome"], () => (__webpack_require__("./resources/css/app.css")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["admin/css/app","css/app","admin/css/fontawesome"], () => (__webpack_require__("./resources/admin/css/app.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin/app","css/app","css/admin/fontawesome"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin/app","css/app","css/admin/fontawesome"], () => (__webpack_require__("./resources/admin/sass/fontawesome.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/admin/app","css/app","css/admin/fontawesome"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/admin/app","css/app","css/admin/fontawesome"], () => (__webpack_require__("./resources/admin/css/app.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

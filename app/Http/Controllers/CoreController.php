@@ -70,6 +70,10 @@ class CoreController extends Controller
 
             if ( !$exist->isEmpty() ) {
                 $url = $exist->first();
+                
+                if ($url->active === 0) {
+                    return view('disabled');
+                }
 
                 $stat = new Stat();
                 $stat->url_id = $url->id;

@@ -43,7 +43,8 @@ require __DIR__.'/auth.php';
 Route::name('admin.')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
-    Route::get('/urls', [UrlController::class, 'index'])->middleware(['auth'])->name('urls');
+    Route::get('/urls', [UrlController::class, 'index'])->middleware(['auth'])->name('urls');    
+    Route::post('/urls/{id}', [UrlController::class, 'update'])->middleware(['auth'])->name('urls.disable');
     
     Route::get('/stats', function () {
         return 'list stats';

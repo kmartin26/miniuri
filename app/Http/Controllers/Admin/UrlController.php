@@ -16,7 +16,6 @@ class UrlController extends Controller
      */
     public function index()
     {
-        // $urls = Url::paginate(20);
         $urls = DB::table('urls')
                     ->selectRaw('urls.*, COUNT(stats.id) as clicks')
                     ->leftJoin('stats', 'stats.url_id', '=', 'urls.id')
@@ -24,9 +23,7 @@ class UrlController extends Controller
                     ->orderByDesc('urls.id')
                     ->paginate(20)
         ;
-
-        // dd($urls);
-
+        
         return view('admin.urls')->with('urls', $urls);
     }
 
@@ -82,7 +79,23 @@ class UrlController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $state = false;
+
+        if ( !empty($id) ) {
+            $url = Url::find($id);
+            if ($request->action === 'disable') {
+                $url->active = false;
+            } else if ($request->action === 'enable') {
+                $url->active = true;
+            }
+            $state = $url->save();
+        }
+
+        if ($state) {
+            return response()->json(['status' => 1]);
+        }
+        return response()->json(['status' => 0]);
+        
     }
 
     /**

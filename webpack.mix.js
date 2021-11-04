@@ -27,3 +27,7 @@ mix.js("resources/admin/js/app.js", "public/js/admin")
     tailwindcss,
   ]);
 mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js/admin');
+
+if (mix.inProduction()) {
+  mix.version();
+}

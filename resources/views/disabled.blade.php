@@ -7,6 +7,6 @@
     
     <p class="text-white">This link has been disabled or deleted by administrators.</p>
 
-    <a href="{{ route('home') }}" target="_self" rel="noopener noreferrer" class="text-white uppercase">home</a>
+    <a href="{{ route('home') }}" target="_self" rel="noopener noreferrer" class="text-white font-bold underline uppercase">home</a>
 </section>
 @endsection

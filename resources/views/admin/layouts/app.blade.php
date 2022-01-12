@@ -46,6 +46,8 @@
         </main>
     </div>
     <script src="{{ mix('js/admin/jquery.min.js') }}"></script>
+    <script src="{{ mix('js/admin/chart.min.js') }}"></script>
     <script src="{{ mix('js/admin/app.js') }}"></script>
+    @yield('script')
 </body>
 </html>

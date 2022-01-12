@@ -5,6 +5,7 @@ use App\Http\Controllers\CoreController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\UrlController;
+use App\Http\Controllers\Admin\StatController;
 use App\Http\Controllers\Admin\DashboardController;
 
 /*
@@ -46,9 +47,8 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::get('/urls', [UrlController::class, 'index'])->middleware(['auth'])->name('urls');    
     Route::post('/urls/{id}', [UrlController::class, 'update'])->middleware(['auth'])->name('urls.disable');
     
-    Route::get('/stats', function () {
-        return 'list stats';
-    })->middleware(['auth'])->name('stats');
+    Route::get('/stats', [StatController::class, 'index'])->middleware(['auth'])->name('stats');
+    Route::get('/stats/{id}', [StatController::class, 'show'])->middleware(['auth'])->name('stats.url');
 
     Route::get('/contacts', function () {
         return 'list contacts';

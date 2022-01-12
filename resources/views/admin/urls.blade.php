@@ -16,7 +16,7 @@
                     <th class="px-2">URL</th>
                     <th class="w-24 px-2">Clicks</th>
                     <th class="w-32 px-2">Date</th>
-                    <th class="w-32 px-2">Actions</th>
+                    <th class="w-36 px-2">Actions</th>
                 </tr>
             </thead>
             <tbody class="text-center bg-white">
@@ -31,18 +31,19 @@
                         </td>
                         <td class="p-2">{{ $url->clicks }}</td>
                         <td class="p-2">{{ \Carbon\Carbon::parse($url->created_at)->format('d-m-Y') }}</td>
-                        <td class="p-2">
+                        <td class="p-2 flex justify-evenly">
                             @if ($url->active)
-                                <button class="disable p-1 rounded border-2 border-red-700 bg-red-600 text-white text-sm w-full" data-id="{{ $url->id }}">Disable</button>
+                                <button class="disable p-1 rounded border-2 border-red-700 bg-red-600 text-white text-sm w-16" data-id="{{ $url->id }}">Disable</button>
                             @else
-                                <button class="enable p-1 rounded border-2 border-blue-700 bg-blue-600 text-white text-sm w-full" data-id="{{ $url->id }}">Enable</button>
+                                <button class="enable p-1 rounded border-2 border-blue-700 bg-blue-600 text-white text-sm w-16" data-id="{{ $url->id }}">Enable</button>
                             @endif
+                            <a class="enable p-1 rounded border-2 border-yellow-700 bg-yellow-600 text-white text-sm" href="{{ route('admin.stats.url', ['id' => $url->id]) }}">Stats</a>
                         </td>
                     </tr> 
                 @endforeach
             </tbody>
         </table>
-        <div class="p-4 mt-2 border-t">{{ $urls->links() }}</div>
+        <div class="p-4 mt-2 border-t flex w-full">{{ $urls->links() }}</div>
     </div>
 </div>
 @endsection

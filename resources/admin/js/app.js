@@ -43,4 +43,9 @@ $(function() {
             return;
         }
     });
+
+    $('.disabled').on('click', function(e) {
+        e.preventDefault();
+        alert('Coming soon')
+    })
 });

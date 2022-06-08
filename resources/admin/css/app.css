@@ -71,3 +71,7 @@ nav > ul li a > i {
 tr:nth-child(even) {
     @apply bg-gray-100;
 }
+
+.disabled {
+    @apply cursor-not-allowed opacity-50 no-underline
+}

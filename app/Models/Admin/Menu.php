@@ -13,7 +13,7 @@ class Menu extends Model
         'dashboard' => array('name' => 'Dashboard', 'route' => 'admin.dashboard', 'icon' => 'fas fa-tachometer-alt'),
         'urls'      => array('name' => 'URLs', 'route' => 'admin.urls', 'icon' => 'fas fa-link'),
         'stats'     => array('name' => 'Statistics', 'route' => 'admin.stats', 'icon' => 'fas fa-chart-bar'),
-        'contacts'  => array('name' => 'Contacts', 'route' => 'admin.contacts', 'icon' => 'fas fa-envelope'),
-        'reports'   => array('name' => 'Reports', 'route' => 'admin.reports', 'icon' => 'fas fa-flag')
+        'contacts'  => array('name' => 'Contacts', 'route' => 'admin.contacts', 'icon' => 'fas fa-envelope', 'class' => 'disabled'),
+        'reports'   => array('name' => 'Reports', 'route' => 'admin.reports', 'icon' => 'fas fa-flag', 'class' => 'disabled')
     );
 }

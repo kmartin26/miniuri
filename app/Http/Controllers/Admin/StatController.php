@@ -23,7 +23,7 @@ class StatController extends Controller
     {
         // Stats Cards
         $month_ago = new DateTime();
-        $month_ago->setTime(0,0);
+        $month_ago->setTime(0, 0);
         $month_ago->modify('-1 month');
         $date = $month_ago->format('Y-m-d H:i:s');
 
@@ -211,7 +211,14 @@ class StatController extends Controller
      */
     public function show($id)
     {
-        //
+        // Get url infos
+        $url = Url::find($id)->toArray();
+        $url['slug'] = Hashids::encode($url['id']);
+
+        // dd($url);
+
+        // Get number of clicks
+        return view('admin.stats.details')->with('url', $url);
     }
 
     /**

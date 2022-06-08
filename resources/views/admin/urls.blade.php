@@ -37,7 +37,7 @@
                             @else
                                 <button class="enable p-1 rounded border-2 border-blue-700 bg-blue-600 text-white text-sm w-16" data-id="{{ $url->id }}">Enable</button>
                             @endif
-                            <a class="enable p-1 rounded border-2 border-yellow-700 bg-yellow-600 text-white text-sm" href="{{ route('admin.stats.url', ['id' => $url->id]) }}">Stats</a>
+                            <a class="stats p-1 rounded border-2 border-yellow-700 bg-yellow-600 text-white text-sm" href="{{ route('admin.stats.url', ['id' => $url->id]) }}">Stats</a>
                         </td>
                     </tr> 
                 @endforeach

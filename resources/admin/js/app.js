@@ -24,9 +24,9 @@ $(function() {
         }
     });
     
-    // Action when clicking disable button
+    // Action when clicking enable button
     $('.enable').on('click', function(){
-        if (confirm('Disable : ' + $(this).data('id') + ' ?')) {
+        if (confirm('Enable : ' + $(this).data('id') + ' ?')) {
             const id = $(this).data('id')
             const href = window.location.pathname + '/' + id
             $.ajax({

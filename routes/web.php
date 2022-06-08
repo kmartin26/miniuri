@@ -21,18 +21,18 @@ use App\Http\Controllers\Admin\DashboardController;
 
 Route::get('/', [CoreController::class, 'index'])->name('home');
 
-Route::get('docs', function() {
+Route::get('docs', function () {
     return view('docs');
 })->name('docs');
 
 Route::get('contact', [ContactController::class, 'create'])->name('contact');
 Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
 
-Route::get('privacy', function() {
+Route::get('privacy', function () {
     return view('privacy');
 })->name('privacy');
 
-Route::get('terms', function() {
+Route::get('terms', function () {
     return view('terms');
 })->name('terms');
 

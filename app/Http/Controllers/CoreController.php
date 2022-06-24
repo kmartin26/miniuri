@@ -79,6 +79,7 @@ class CoreController extends Controller
                 $stat->url_id = $url->id;
                 $stat->ip = $request->ip();
                 $stat->user_agent = $request->header('user-agent');
+                $stat->referer = $request->header('referer');
                 $stat->save();
 
                 return redirect($url->url);

@@ -6,11 +6,13 @@ use DateTime;
 use DatePeriod;
 use DateInterval;
 use App\Models\Url;
-use Jenssegers\Agent\Facades\Agent;
+use App\Models\Stat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Jenssegers\Agent\Facades\Agent;
 use Vinkla\Hashids\Facades\Hashids;
 use App\Http\Controllers\Controller;
+use Stevebauman\Location\Facades\Location;
 
 class StatController extends Controller
 {
@@ -214,11 +216,119 @@ class StatController extends Controller
         // Get url infos
         $url = Url::find($id)->toArray();
         $url['slug'] = Hashids::encode($url['id']);
+        $url['clicks'] = Stat::where('url_id', $id)->count();
+        $url['last_access'] = null;
 
-        // dd($url);
+        $last_access = DB::table('stats')->where('url_id', $id)->orderByDesc('id')->limit(1)->get();
+        $last_access = reset($last_access);
 
-        // Get number of clicks
-        return view('admin.stats.details')->with('url', $url);
+        if (!empty($last_access[0])) {
+            $url['last_access'] = $last_access[0]->created_at;
+        }
+
+        // Get access count per month last 12 months
+        $date = new DateTime();
+        $first_day = clone $date;
+        $first_day->modify("-12 months");
+        $first_dayDate = $first_day->format('Y-m-01');
+        $last_day = clone $date;
+        $last_day->modify("-1 month");
+        $last_dayDate = $last_day->format('Y-m-t');
+
+        $interval = DateInterval::createFromDateString('1 month');
+        $period   = new DatePeriod($first_day, $interval, $last_day);
+
+        $months = array();
+        $totals = array();
+
+        foreach ($period as $dt) {
+            $months[$dt->format('ym')] =  $dt->format('M y');
+            $totals[$dt->format('ym')] =  0;
+        }
+        $months[$last_day->format('ym')] = $last_day->format('M y');
+        $totals[$last_day->format('ym')] = 0;
+        
+        $query = DB::table('stats')
+                    ->selectRaw("count(*) as total, date_format(created_at, '%y%m') as month_year")
+                    ->whereBetween('created_at', [$first_dayDate, $last_dayDate])
+                    ->groupBy('month_year')
+                    ->get()
+                    ->toArray()
+        ;
+
+        foreach ($query as $uv) {
+            $totals[$uv->month_year] = $uv->total;
+        }
+
+        $charts['access_per_month'] = array(
+            'months' => json_encode(array_values($months)),
+            'totals' => json_encode(array_values($totals))
+        );
+
+        $tables = array(
+            'top_ips' => array(),
+            'top_countries' => array(),
+            'top_referers' => array()
+        );
+
+        $ips = DB::table('stats')
+            ->select('ip', DB::raw('count(*) as total'))
+            ->where('url_id', '=', $id)
+            ->groupBy('ip')
+            ->orderByDesc('total')
+            ->limit(10)
+            ->get()
+            ->toArray()
+        ;
+
+        foreach ($ips as $ip) {
+            $tables['top_ips'][] = array(
+                'ip' => $ip->ip,
+                'total' => $ip->total
+            );
+        }
+
+        $ips = DB::table('stats')
+            ->select('ip')
+            ->where('url_id', '=', $id)
+            ->get()
+            ->toArray()
+        ;
+
+        $countries = array();
+        foreach ($ips as $ip) {
+            $city = Location::get($ip->ip);
+
+            if (!empty($city)) {
+                if (!isset($countries[$city->countryName])) {
+                    $countries[$city->countryName] = 1;
+                } else {
+                    $countries[$city->countryName] += 1;
+                }
+            }
+        }
+
+        arsort($countries);
+        $tables['top_countries'] = array_slice($countries, 0, 10);
+
+        $referers = DB::table('stats')
+            ->select('referer', DB::raw('count(*) as total'))
+            ->where('url_id', '=', $id)
+            ->groupBy('referer')
+            ->orderByDesc('total')
+            ->limit(10)
+            ->get()
+            ->toArray()
+        ;
+
+        foreach ($referers as $referer) {
+            $tables['top_referers'][] = array(
+                'referer' => (is_null($referer->referer)) ? 'none' : $referer->referer,
+                'total' => $referer->total
+            );
+        }
+
+        return view('admin.stats.details')->with('url', $url)->with('charts', $charts)->with('tables', $tables);
     }
 
     /**

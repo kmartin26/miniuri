@@ -41,7 +41,7 @@
                             <tr>
                                 <td class="p-2">{{ $url['id'] }}</td>
                                 <td class="p-2">
-                                    <a class="text-blue-600 hover:underline hover:font-semibold" target="_blank" href="{{ url($url['slug']) }}">{{ $url['slug'] }}</a>
+                                    <a class="text-blue-600 hover:underline hover:font-semibold" href="{{ route('admin.stats.url', $url['id']) }}">{{ $url['slug'] }}</a>
                                 </td>
                                 <td class="p-2">{{ $url['clicks'] }}</td>
                             </tr> 

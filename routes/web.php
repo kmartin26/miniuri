@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CoreController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Admin\UrlController;
+use App\Http\Controllers\Admin\StatController;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,22 +21,42 @@ use App\Http\Controllers\ContactController;
 
 Route::get('/', [CoreController::class, 'index'])->name('home');
 
-Route::get('docs', function() {
+Route::get('docs', function () {
     return view('docs');
 })->name('docs');
 
 Route::get('contact', [ContactController::class, 'create'])->name('contact');
 Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
 
-Route::get('privacy', function() {
+Route::get('privacy', function () {
     return view('privacy');
 })->name('privacy');
 
-Route::get('terms', function() {
+Route::get('terms', function () {
     return view('terms');
 })->name('terms');
 
 Route::get('report', [ReportController::class, 'create'])->name('report');
 Route::post('report', [ReportController::class, 'store'])->name('report.store');
+
+require __DIR__.'/auth.php';
+
+Route::name('admin.')->prefix('admin')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
+
+    Route::get('/urls', [UrlController::class, 'index'])->middleware(['auth'])->name('urls');    
+    Route::post('/urls/{id}', [UrlController::class, 'update'])->middleware(['auth'])->name('urls.disable');
+    
+    Route::get('/stats', [StatController::class, 'index'])->middleware(['auth'])->name('stats');
+    Route::get('/stats/{id}', [StatController::class, 'show'])->middleware(['auth'])->name('stats.url');
+
+    Route::get('/contacts', function () {
+        return 'list contacts';
+    })->middleware(['auth'])->name('contacts');
+
+    Route::get('/reports', function () {
+        return 'list reports';
+    })->middleware(['auth'])->name('reports');
+});
 
 Route::get('{slug}', [CoreController::class, 'show']);

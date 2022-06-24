@@ -12,8 +12,23 @@ const tailwindcss = require('tailwindcss');
  |
  */
 
- mix.js("resources/js/app.js", "public/js")
+
+// Public ressources
+mix.js("resources/js/app.js", "public/js")
   .postCss("resources/css/app.css", "public/css", [
-    require("tailwindcss"),
+    tailwindcss,
   ]);
 mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js');
+
+// Admin ressources
+mix.js("resources/admin/js/app.js", "public/js/admin")
+  .sass('resources/admin/sass/fontawesome.scss', 'public/css/admin')
+  .postCss("resources/admin/css/app.css", "public/css/admin", [
+    tailwindcss,
+  ]);
+mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js/admin');
+mix.copy('node_modules/chart.js/dist/chart.min.js', 'public/js/admin');
+
+if (mix.inProduction()) {
+  mix.version();
+}

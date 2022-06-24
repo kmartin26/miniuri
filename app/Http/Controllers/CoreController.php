@@ -70,11 +70,16 @@ class CoreController extends Controller
 
             if ( !$exist->isEmpty() ) {
                 $url = $exist->first();
+                
+                if ($url->active === 0) {
+                    return view('disabled');
+                }
 
                 $stat = new Stat();
                 $stat->url_id = $url->id;
                 $stat->ip = $request->ip();
                 $stat->user_agent = $request->header('user-agent');
+                $stat->referer = $request->header('referer');
                 $stat->save();
 
                 return redirect($url->url);

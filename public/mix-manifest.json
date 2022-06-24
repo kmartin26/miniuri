@@ -1,10 +1,10 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/js/admin/app.js": "/js/admin/app.js",
-    "/css/admin/app.css": "/css/admin/app.css",
-    "/css/app.css": "/css/app.css",
-    "/css/admin/fontawesome.css": "/css/admin/fontawesome.css",
-    "/js/jquery.min.js": "/js/jquery.min.js",
-    "/js/admin/jquery.min.js": "/js/admin/jquery.min.js",
-    "/js/admin/chart.min.js": "/js/admin/chart.min.js"
+    "/js/app.js": "/js/app.js?id=4f3d1f0aa2ed9bade5b6513c21d3173c",
+    "/js/admin/app.js": "/js/admin/app.js?id=1da8ea4abc4d13ca5792c1ab44fc499b",
+    "/css/admin/app.css": "/css/admin/app.css?id=063c3a3a5a2c9d6a57ddd4eddfe9f1cd",
+    "/css/app.css": "/css/app.css?id=145399a52d725217001b9d52e36bda39",
+    "/css/admin/fontawesome.css": "/css/admin/fontawesome.css?id=72fd9c14a19cbc75646a67667a1435f0",
+    "/js/jquery.min.js": "/js/jquery.min.js?id=8fb8fee4fcc3cc86ff6c724154c49c42",
+    "/js/admin/jquery.min.js": "/js/admin/jquery.min.js?id=8fb8fee4fcc3cc86ff6c724154c49c42",
+    "/js/admin/chart.min.js": "/js/admin/chart.min.js?id=e9ce0a1ae318297b8b726c48f26da5b6"
 }

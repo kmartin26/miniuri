@@ -1,10 +1,11 @@
 {
-    "/js/app.js": "/js/app.js?id=4f3d1f0aa2ed9bade5b6513c21d3173c",
-    "/js/admin/app.js": "/js/admin/app.js?id=1da8ea4abc4d13ca5792c1ab44fc499b",
-    "/css/admin/app.css": "/css/admin/app.css?id=063c3a3a5a2c9d6a57ddd4eddfe9f1cd",
-    "/css/app.css": "/css/app.css?id=145399a52d725217001b9d52e36bda39",
-    "/css/admin/fontawesome.css": "/css/admin/fontawesome.css?id=72fd9c14a19cbc75646a67667a1435f0",
-    "/js/jquery.min.js": "/js/jquery.min.js?id=8fb8fee4fcc3cc86ff6c724154c49c42",
-    "/js/admin/jquery.min.js": "/js/admin/jquery.min.js?id=8fb8fee4fcc3cc86ff6c724154c49c42",
-    "/js/admin/chart.min.js": "/js/admin/chart.min.js?id=e9ce0a1ae318297b8b726c48f26da5b6"
+    "/js/app.js": "/js/app.js?id=654124587cdfb7e71f1681a7cf37ed62",
+    "/js/admin/app.js": "/js/admin/app.js?id=4944a84cc1c1682ee5fdf53f21528a92",
+    "/css/admin/app.css": "/css/admin/app.css?id=27419d22e843a19250f0906f391fab08",
+    "/css/app.css": "/css/app.css?id=9a3cc29e58a30ff71660d0221abf42ac",
+    "/css/admin/fontawesome.css": "/css/admin/fontawesome.css?id=32503335f1da408d345d662e6f244275",
+    "/js/jquery.min.js": "/js/jquery.min.js?id=cf2fbbf84281d9ecbffb4993203d543b",
+    "/js/jquery.qrcode.min.js": "/js/jquery.qrcode.min.js?id=05f0b1d7d4b9b0b4975870606d650e3c",
+    "/js/admin/jquery.min.js": "/js/admin/jquery.min.js?id=cf2fbbf84281d9ecbffb4993203d543b",
+    "/js/admin/chart.min.js": "/js/admin/chart.min.js?id=7dd5ea7d2cf22a1c42b43c40093d2669"
 }

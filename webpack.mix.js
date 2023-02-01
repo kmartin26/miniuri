@@ -19,6 +19,7 @@ mix.js("resources/js/app.js", "public/js")
     tailwindcss,
   ]);
 mix.copy('node_modules/jquery/dist/jquery.min.js', 'public/js');
+mix.copy('resources/js/jquery.qrcode.min.js', 'public/js');
 
 // Admin ressources
 mix.js("resources/admin/js/app.js", "public/js/admin")

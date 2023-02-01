@@ -26,7 +26,10 @@ $(function() {
                 $('input[name="url"]').val(data.result);
                 $('.form').addClass('disabled');
                 $('.btn-submit').removeClass('btn-submit').addClass('btn-copy').find('span').text('Copy');
-                $('.alert-box .alert').addClass('alert-success').removeClass('hidden').html('Your link is ready!');
+                $('.alert-box .alert').addClass('alert-success').removeClass('hidden').html(`
+					Your link is ready! <br>
+					<a class="qrcode font-bold" href="/">QRCode</a>
+				`);
             } else if (data.error == "ALREADY_SHORTEN") {
                 $('.alert-box .alert').addClass('alert-danger').removeClass('hidden').html(data.message);
             }
@@ -38,7 +41,7 @@ $(function() {
     });
 
     $('body').on('click', '.btn-copy', function() {
-        var copied = copyToClipboard($('input[name="url"]'));
+        let copied = copyToClipboard($('input[name="url"]'));
         if (copied) {
             $('.alert-box .alert').addClass('alert-success').removeClass('hidden').html('Copied to clipboard');
         }
@@ -47,6 +50,19 @@ $(function() {
     $('body').on('click', '.btn-restart', function() {
         location.reload();
     });
+
+	$('body').on('click', '.qrcode', function(e) {
+		e.preventDefault();
+		if ($('body').find('#qrcode-box').has('canvas').length == 0) {
+			let link = $('input[name="url"]').val();
+			$('body').find('#qrcode-box').qrcode(link);
+		}
+		$('body').find('#qrcode-container').toggleClass('hidden');
+	});
+
+	$('body').on('click', '#qrcode-close', function() {
+		$('body').find('#qrcode-container').addClass('hidden');
+	})
 
 });
 

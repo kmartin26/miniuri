@@ -17,7 +17,7 @@
             </svg>
         </button>
     </form>
-    <div class="alert-box w-1/2 h-12 mx-auto my-3" role="alert">
+    <div class="alert-box w-100 lg:w-1/3 mx-3 lg:mx-auto my-3" role="alert">
         <div class="alert hidden"></div>
     </div>
     <div class="restart flex items-center justify-center h-10">
@@ -28,5 +28,15 @@
             </svg>
         </button>
     </div>
+	<div id="qrcode-container" class="absolute top-0 right-0 bottom-0 left-0 bg-black/[0.4] hidden">
+		<div id="qrcode-box" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6 bg-white">
+			<div id="qrcode-close" class="absolute top-0 right-0 translate-x-4 -translate-y-4 rounded-full p-1 shadow shadow-black bg-red-700 text-white">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+				</svg>
+			</div>
+		</div>
+		
+	</div>
 </section>
 @endsection

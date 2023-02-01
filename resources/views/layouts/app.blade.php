@@ -43,7 +43,8 @@
             <div>Copyright 2020 - {{ config('app.name') }}</div>
         </footer>
     </div>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="{{ mix('js/jquery.min.js') }}"></script>
+    <script src="{{ mix('js/jquery.qrcode.min.js') }}"></script>
+	<script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

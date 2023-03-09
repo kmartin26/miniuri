@@ -15,6 +15,8 @@
         "jenssegers/agent": "^2.6",
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.0",
+        "league/flysystem-aws-s3-v3": "^1.0",
+        "spatie/laravel-backup": "^7.0",
         "stevebauman/location": "^6.5",
         "vinkla/hashids": "^9.0"
     },
